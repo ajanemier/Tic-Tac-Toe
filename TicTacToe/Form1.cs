@@ -65,7 +65,7 @@ namespace TicTacToe
                 else
                     winner = "X";
 
-                MessageBox.Show(winner + " wins!", "Good job!");
+                MessageBox.Show(winner + " wins!", "Winner");
 
             }
             else
@@ -87,6 +87,26 @@ namespace TicTacToe
             }
             catch { }
             
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pointY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pointX_Click(object sender, EventArgs e)
+        {
 
         }
     }
