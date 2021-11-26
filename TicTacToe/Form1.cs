@@ -91,7 +91,7 @@ namespace TicTacToe
             {
                 foreach (Control c in Controls)
                 {
-                    
+                    if (c.GetType() == typeof(Button))
 
                     {
                         Button b = (Button)c;
@@ -159,19 +159,7 @@ namespace TicTacToe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            turn = true;
-            turnCount = 0;
 
-                foreach (Control c in Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.Enabled = true;
-                    b.Text = "";
-                }
-                catch { }
-            }
 
 
         }
@@ -184,6 +172,40 @@ namespace TicTacToe
         private void label8_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            oPuntos.Text = "0";
+            xPuntos.Text = "0";
+            tablaPuntos.Text="0";
+        }
+
+        private void isaPa_Click(object sender, EventArgs e)
+        {
+            turn = true;
+            turnCount = 0;
+
+            foreach (Control c in Controls)
+            {
+                try
+                {
+                    Button b = (Button)c;
+                    b.Enabled = true;
+                    b.Text = "";
+                }
+                catch { }
+            }
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit ();
         }
     }
 }
