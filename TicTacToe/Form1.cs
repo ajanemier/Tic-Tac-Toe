@@ -9,6 +9,7 @@ namespace TicTacToe
         public Form1()
         {
             InitializeComponent();
+          
         }
 
         private void button_click(object sender, EventArgs e)
@@ -61,17 +62,26 @@ namespace TicTacToe
 
                 String winner = "";
                 if (turn)
+                {
                     winner = "O";
+                    oPuntos.Text = (Int32.Parse(oPuntos.Text) + 1).ToString();
+                }
                 else
+                {
                     winner = "X";
+                    xPuntos.Text = (Int32.Parse(xPuntos.Text) + 1).ToString();
+                }
 
-                MessageBox.Show(winner + " wins!", "Winner");
+                MessageBox.Show(winner + " ang nanalo!", "Panalo");
 
             }
             else
             {
                 if (turnCount == 9)
-                    MessageBox.Show("Draw!");
+                {
+                    tablaPuntos.Text = (Int32.Parse(tablaPuntos.Text) + 1).ToString();
+                    MessageBox.Show("Tabla!", "Ay!");
+                }
             }
         }
 
@@ -79,10 +89,14 @@ namespace TicTacToe
         {
             try
             {
-                foreach (IBindableComponent c in Controls)
+                foreach (Control c in Controls)
                 {
-                    Button b = (Button)c;
-                    b.Enabled = false;
+                    
+
+                    {
+                        Button b = (Button)c;
+                        b.Enabled = false;
+                    }
                 }
             }
             catch { }
@@ -108,6 +122,68 @@ namespace TicTacToe
         private void pointX_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEnter(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Enabled)
+            {
+                if (turn)
+                    b.Text = "X";
+                else
+                    b.Text = "O";
+            }
+        }
+
+        private void buttonLeave(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Enabled)
+            { 
+                b.Text = "";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            turn = true;
+            turnCount = 0;
+
+                foreach (Control c in Controls)
+            {
+                try
+                {
+                    Button b = (Button)c;
+                    b.Enabled = true;
+                    b.Text = "";
+                }
+                catch { }
+            }
+
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
